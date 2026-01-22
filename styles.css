@@ -1,0 +1,77 @@
+/* 1. General span styling */
+span {
+    display: inline-block;
+  }
+  
+  /* 2. Row background gradients using attribute selectors */
+  tr[class="read"] {
+    background-image: linear-gradient(to right, #a8e6cf, #dcedc1);
+  }
+  
+  tr[class="to-read"] {
+    background-image: linear-gradient(to right, #ffd3b6, #ffaaa5);
+  }
+  
+  tr[class="in-progress"] {
+    background-image: linear-gradient(to right, #ff8b94, #ffaaa5);
+  }
+  
+  /* 3. Status span styling using attribute selectors */
+  tr[class="read"] span[class="status"] {
+    border: 1px solid green;
+    background-image: linear-gradient(to bottom, #c8e6c9, #a5d6a7);
+    padding: 5px 10px;
+  }
+  
+  tr[class="to-read"] span[class="status"] {
+    border: 1px solid orange;
+    background-image: linear-gradient(to bottom, #ffe0b2, #ffcc80);
+    padding: 5px 10px;
+  }
+  
+  tr[class="in-progress"] span[class="status"] {
+    border: 1px solid blue;
+    background-image: linear-gradient(to bottom, #bbdefb, #90caf9);
+    padding: 5px 10px;
+  }
+  
+  /* 4. Height, width, padding for status and rate spans (tests 37–40) */
+  span[class="status"],
+  span[class^="rate"] {
+    height: 20px;
+    width: 60px;
+    padding: 2px;
+  }
+  
+  /* 5. Direct children of rate spans */
+  span[class^="rate"] > span {
+    border: 1px solid gray;
+    border-radius: 50%;
+    margin: 2px;
+    height: 15px;
+    width: 15px;
+    background-color: #e0e0e0;
+  }
+  
+  /* 48–49: First descendant of rate one span */
+  /* First span inside a rate-one span */
+  span[class~="one"] span:nth-child(1) {
+    background-image: linear-gradient(to bottom, #ffd700, #ffa500);
+  }
+  
+  
+  /* 50–51: First two descendants of rate two span */
+  /* First two spans inside a rate-two span */
+  span[class~="two"] span:nth-child(1),
+  span[class~="two"] span:nth-child(2) {
+    background-image: linear-gradient(to bottom, #ffd700, #ffa500);
+  }
+  
+  
+  /* 52–53: All three descendants of rate three span */
+  /* All three spans inside a rate-three span */
+  span[class~="three"] span {
+    background-image: linear-gradient(to bottom, #ffd700, #ffa500);
+  }
+  
+  
